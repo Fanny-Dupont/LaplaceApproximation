@@ -22,7 +22,7 @@ source("DataBear.R")
 Get_Predictive_function<- function(mu,Sigma,dim,state_distribution,state_space){
   if (dim == 1){
     hat_p <- function(x){
-      dnorm(x,mean=mu,sd=Sigma)
+      dnorm(x,mean=mu,sd=sqrt(Sigma))
     }
     f <- function(x,y){
       state_distribution(y,x)*hat_p(x)
